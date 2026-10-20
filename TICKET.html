@@ -84,6 +84,15 @@
         color: var(--ink-dim);
       }
 
+      .topbar-right {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+      }
+
       .wrap {
         width: min(680px, 100%);
         position: relative;
@@ -637,6 +646,9 @@
         </svg>
       </div>
       <span class="topbar-teks">CourtSide Basket 2026</span>
+      <span class="topbar-right">
+        <a href="beranda.html">Kembali ke Beranda</a>
+      </span>
     </header>
 
     <main class="wrap">
@@ -1021,6 +1033,7 @@
         ctx.fillStyle = "#171717";
         ctx.textAlign = "right";
         ctx.fillText("COURTSIDE BASKET 2026", W - M, 118);
+        ctx.fillText("KEMBALI KE BERANDA", W - M, 118);
         ctx.font = "600 21px Manrope, 'Segoe UI', sans-serif";
         ctx.fillStyle = "#666666";
         ctx.fillText("STRUK TIKET BASKET", W - M, 157);
@@ -1095,7 +1108,7 @@
         tengah("Tunjukkan tiket ini di pintu masuk arena basket.", y + 132, "500 20px Manrope, 'Segoe UI', sans-serif", "#666666");
         tengah("Nikmati pertandingan basket secara langsung.", y + 160, "500 20px Manrope, 'Segoe UI', sans-serif", "#666666");
         tengah("CourtSide Basket 2026 — " + d.waktu, H - 66, "600 18px Manrope, sans-serif", "#777777");
-
+        tengah("Kembali ke Beranda" + d.waktu, H - 66, "600 18px Manrope, sans-serif", "#777777");
         return cv.toDataURL("image/png");
       }
 

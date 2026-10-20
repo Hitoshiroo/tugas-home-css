@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pemesanan Tiket</title>
+    <title>Tiket Basket | CourtSide 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,13 +12,13 @@
     />
     <style>
       :root {
-        --gold: #f6c453;
-        --gold-deep: #e8a52c;
-        --ink: #eef2f7;
-        --ink-dim: #9aa8bd;
-        --field-bg: rgba(255, 255, 255, 0.06);
-        --field-border: rgba(255, 255, 255, 0.14);
-        --accent: #6ea8ff;
+        --gold: #111111;
+        --gold-deep: #444444;
+        --ink: #171717;
+        --ink-dim: #666666;
+        --field-bg: #ffffff;
+        --field-border: #cccccc;
+        --accent: #111111;
       }
 
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,11 +31,7 @@
         padding: 104px 16px 56px;
         font-family: "Manrope", "Segoe UI", sans-serif;
         color: var(--ink);
-        background:
-          radial-gradient(1200px 600px at 15% -10%, rgba(110, 168, 255, 0.22), transparent 60%),
-          radial-gradient(900px 500px at 110% 20%, rgba(246, 196, 83, 0.14), transparent 55%),
-          radial-gradient(800px 900px at 50% 120%, rgba(88, 60, 160, 0.28), transparent 60%),
-          linear-gradient(160deg, #0b1026 0%, #141a33 45%, #1c1433 100%);
+        background: #ffffff;
         background-attachment: fixed;
         position: relative;
         overflow-x: hidden;
@@ -43,21 +39,13 @@
 
       body::before,
       body::after {
-        content: "";
-        position: fixed;
-        inset: -20%;
-        pointer-events: none;
-        z-index: 0;
+        display: none;
       }
       body::before {
-        background: radial-gradient(closest-side, rgba(255, 214, 120, 0.10), transparent 70%);
-        filter: blur(40px);
-        animation: drift 18s ease-in-out infinite alternate;
+        background: none;
       }
       body::after {
-        background: radial-gradient(closest-side, rgba(120, 160, 255, 0.10), transparent 70%);
-        filter: blur(60px);
-        animation: drift 24s ease-in-out infinite alternate-reverse;
+        background: none;
       }
       @keyframes drift {
         from { transform: translate(-6%, -4%) scale(1); }
@@ -74,19 +62,19 @@
         padding: 18px 24px;
         z-index: 5;
       }
-      .logo-placeholder {
+      .logo-icon {
         width: 46px;
         height: 46px;
         flex-shrink: 0;
         display: grid;
         place-items: center;
         border-radius: 13px;
-        color: var(--gold);
-        background: linear-gradient(150deg, rgba(246, 196, 83, 0.18), rgba(246, 196, 83, 0.05));
-        border: 1.5px dashed rgba(246, 196, 83, 0.55);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+        color: #111111;
+        background: #ffffff;
+        border: 1.5px dashed #777777;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
       }
-      .logo-placeholder svg { width: 25px; height: 25px; }
+      .logo-icon svg { width: 25px; height: 25px; }
       .topbar-teks {
         font-family: "Sora", sans-serif;
         font-weight: 700;
@@ -112,11 +100,10 @@
         font-weight: 800;
         font-size: clamp(1.8rem, 4vw, 2.4rem);
         letter-spacing: 0.5px;
-        background: linear-gradient(92deg, #ffffff 10%, var(--gold) 55%, #ffd98a 90%);
+        background: linear-gradient(92deg, #111111 10%, #555555 90%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        text-shadow: 0 0 40px rgba(246, 196, 83, 0.25);
       }
       .judul p {
         margin-top: 8px;
@@ -132,13 +119,11 @@
         position: relative;
         border-radius: 20px;
         padding: 30px 30px 24px;
-        background: linear-gradient(165deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: #ffffff;
+        border: 1px solid #dddddd;
         box-shadow:
-          0 30px 60px rgba(0, 0, 0, 0.45),
-          inset 0 1px 0 rgba(255, 255, 255, 0.18);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
+          0 16px 38px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
         overflow: hidden;
       }
       .boxpemesanan::before {
@@ -146,7 +131,7 @@
         position: absolute;
         top: 0; left: 0; right: 0;
         height: 4px;
-        background: linear-gradient(90deg, transparent, var(--gold), var(--gold-deep), transparent);
+        background: linear-gradient(90deg, transparent, #111111, #777777, transparent);
       }
       .kartu-judul {
         font-family: "Sora", sans-serif;
@@ -185,11 +170,11 @@
       input:focus,
       select:focus {
         outline: none;
-        border-color: rgba(246, 196, 83, 0.65);
-        background-color: rgba(255, 255, 255, 0.09);
-        box-shadow: 0 0 0 4px rgba(246, 196, 83, 0.15), 0 0 24px rgba(246, 196, 83, 0.10);
+        border-color: #111111;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
       }
-      input::placeholder { color: rgba(154, 168, 189, 0.55); }
+      input::placeholder { color: #999999; }
       input[type="number"]::-webkit-outer-spin-button,
       input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 
@@ -201,8 +186,8 @@
         border: 1px solid var(--field-border);
         background-color: var(--field-bg);
         background-image:
-          linear-gradient(45deg, transparent 50%, var(--gold) 50%),
-          linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+          linear-gradient(45deg, transparent 50%, #111111 50%),
+          linear-gradient(135deg, #111111 50%, transparent 50%);
         background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
         background-size: 6px 6px;
         background-repeat: no-repeat;
@@ -214,7 +199,7 @@
         padding-right: 38px;
         transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
       }
-      select option { color: #1a2033; background: #f4f1ea; }
+      select option { color: #111111; background: #ffffff; }
 
       /* ===== TICKET CAROUSEL ===== */
       .pilihan { width: 100%; }
@@ -243,19 +228,18 @@
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid #cccccc;
+        background: #ffffff;
         color: var(--gold);
         cursor: pointer;
         display: grid;
         place-items: center;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
         transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
       }
       .arrow:hover {
-        background: rgba(246, 196, 83, 0.16);
-        box-shadow: 0 0 20px rgba(246, 196, 83, 0.30);
+        background: #111111;
+        color: #ffffff;
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
         transform: scale(1.08);
       }
       .arrow:active { transform: scale(0.96); }
@@ -267,22 +251,22 @@
         border-radius: 16px;
         overflow: hidden;
         cursor: pointer;
-        background: linear-gradient(165deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+        background: #ffffff;
+        border: 1px solid #dddddd;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
         transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       }
       .kartu-tiket:hover {
         transform: translateY(-4px);
-        box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.14);
       }
       .kartu-tiket:focus-visible {
         outline: none;
-        border-color: rgba(246, 196, 83, 0.7);
+        border-color: #111111;
       }
       .kartu-tiket.aktif {
-        border-color: rgba(246, 196, 83, 0.85);
-        box-shadow: 0 0 0 3px rgba(246, 196, 83, 0.22), 0 18px 40px rgba(0, 0, 0, 0.45);
+        border-color: #111111;
+        box-shadow: 0 0 0 2px #111111, 0 12px 28px rgba(0, 0, 0, 0.12);
       }
 
       .kartu-gambar {
@@ -290,9 +274,17 @@
         display: grid;
         place-items: center;
         color: rgba(255, 255, 255, 0.88);
+        padding: 6px;
       }
-      .kartu-tiket.premium .kartu-gambar { color: rgba(74, 48, 6, 0.72); }
+      .kartu-tiket.premium .kartu-gambar { color: #ffffff; }
       .kartu-gambar svg { width: 42px; height: 42px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
+      .kartu-gambar img { width: 100%; height: 100%; object-fit: contain; }
+      .kartu-tiket:not(.premium) .kartu-gambar img,
+      #gambarTiket:not(.premium) img {
+        width: 90%;
+        height: 90%;
+        transform: translateY(-24px);
+      }
 
       .kartu-info { padding: 13px 14px 12px; }
       .kartu-nama {
@@ -323,19 +315,19 @@
         border-radius: 999px;
       }
       .badge-reguler {
-        color: #bcd4ff;
-        background: rgba(110, 168, 255, 0.15);
-        border: 1px solid rgba(110, 168, 255, 0.35);
+        color: #222222;
+        background: #eeeeee;
+        border: 1px solid #cccccc;
       }
       .badge-premium {
-        color: #ffe1a1;
-        background: rgba(246, 196, 83, 0.14);
-        border: 1px solid rgba(246, 196, 83, 0.40);
+        color: #ffffff;
+        background: #333333;
+        border: 1px solid #333333;
       }
       .badge-netral {
         color: var(--ink-dim);
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: #f2f2f2;
+        border: 1px solid #dddddd;
       }
 
       .kartu-tiket.ganti .kartu-gambar { animation: muncul 0.35s ease both; }
@@ -352,11 +344,9 @@
         gap: 20px;
         border-radius: 20px;
         padding: 22px;
-        background: linear-gradient(165deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
+        background: #ffffff;
+        border: 1px solid #dddddd;
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffffff;
       }
 
       .gambar-tiket {
@@ -368,13 +358,15 @@
         place-items: center;
         color: rgba(255, 255, 255, 0.9);
         transition: background 0.3s ease;
+        padding: 8px;
       }
       .gambar-tiket svg { width: 54px; height: 54px; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.25)); }
-      .gambar-tiket.premium { color: rgba(74, 48, 6, 0.72); }
+      .gambar-tiket img { width: 100%; height: 100%; object-fit: contain; }
+      .gambar-tiket.premium { color: #ffffff; }
       .gambar-tiket.kosong {
-        color: rgba(255, 255, 255, 0.22);
-        border: 1.5px dashed rgba(255, 255, 255, 0.20);
-        background: rgba(255, 255, 255, 0.04) !important;
+        color: #999999;
+        border: 1.5px dashed #cccccc;
+        background: #f5f5f5 !important;
       }
       .gambar-tiket.kosong svg { filter: none; }
 
@@ -427,21 +419,21 @@
         font-weight: 700;
         font-size: 0.98rem;
         letter-spacing: 1px;
-        color: #20160a;
-        background: linear-gradient(135deg, #ffe29a 0%, var(--gold) 40%, var(--gold-deep) 100%);
+        color: #ffffff;
+        background: #111111;
         cursor: pointer;
-        box-shadow: 0 10px 26px rgba(232, 165, 44, 0.35);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
         transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
       }
       .btn-pesan:hover:not(:disabled) {
         transform: translateY(-2px);
         filter: brightness(1.06);
-        box-shadow: 0 16px 34px rgba(232, 165, 44, 0.45);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
       }
       .btn-pesan:active:not(:disabled) { transform: translateY(0); }
       .btn-pesan:disabled {
         cursor: not-allowed;
-        filter: grayscale(0.7) brightness(0.6);
+        opacity: 0.45;
         box-shadow: none;
       }
 
@@ -462,13 +454,13 @@
 
       .struk-kartu {
         width: min(400px, 100%);
-        background: #fdfcf9;
-        color: #1a2033;
+        background: #ffffff;
+        color: #171717;
         border-radius: 18px;
         padding: 26px 26px 20px;
         position: relative;
         overflow: hidden;
-        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.16);
         animation: muncul 0.35s ease both;
       }
       .struk-kartu::before {
@@ -476,7 +468,7 @@
         position: absolute;
         top: 0; left: 0; right: 0;
         height: 8px;
-        background: linear-gradient(90deg, #ffe29a, var(--gold), var(--gold-deep));
+        background: linear-gradient(90deg, #111111, #666666);
       }
       .struk-kepala {
         display: flex;
@@ -489,13 +481,14 @@
         width: 42px;
         height: 42px;
         flex-shrink: 0;
-        display: grid;
-        place-items: center;
-        border-radius: 11px;
-        color: #20160a;
-        background: linear-gradient(135deg, #ffe29a, var(--gold-deep));
+        object-fit: contain;
       }
-      .struk-logo svg { width: 23px; height: 23px; }
+      .struk-logo[src*="common_ticket"] {
+        width: 38px;
+        height: 38px;
+        margin-right: -4px;
+        transform: translateY(-8px);
+      }
       .struk-kepala h2 {
         font-family: "Sora", sans-serif;
         font-weight: 800;
@@ -507,13 +500,13 @@
         font-weight: 600;
         letter-spacing: 2.4px;
         text-transform: uppercase;
-        color: #8a93a6;
+        color: #666666;
         margin-top: 2px;
       }
 
       .struk-barcode {
         background: #ffffff;
-        border: 1.5px dashed #d8d2c4;
+        border: 1.5px dashed #bbbbbb;
         border-radius: 12px;
         padding: 14px 12px 10px;
         display: flex;
@@ -536,11 +529,11 @@
         align-items: baseline;
         gap: 14px;
         padding: 8px 0;
-        border-bottom: 1px dashed #e5e0d5;
+        border-bottom: 1px dashed #dddddd;
       }
       .struk-label {
         flex-shrink: 0;
-        color: #8a93a6;
+        color: #666666;
         font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 1.2px;
@@ -561,8 +554,8 @@
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        color: #20160a;
-        background: linear-gradient(135deg, #ffe29a 0%, var(--gold) 55%, var(--gold-deep) 100%);
+        color: #ffffff;
+        background: #111111;
       }
       .struk-total span {
         font-size: 0.72rem;
@@ -580,7 +573,7 @@
         margin-top: 14px;
         font-size: 0.74rem;
         line-height: 1.6;
-        color: #8a93a6;
+        color: #666666;
         text-align: center;
       }
 
@@ -593,9 +586,9 @@
       .btn-ghost {
         padding: 13px 22px;
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        background: rgba(255, 255, 255, 0.07);
-        color: var(--ink);
+        border: 1px solid #111111;
+        background: #ffffff;
+        color: #111111;
         font-family: "Sora", sans-serif;
         font-weight: 600;
         font-size: 0.9rem;
@@ -603,7 +596,7 @@
         cursor: pointer;
         transition: background 0.18s ease, transform 0.18s ease;
       }
-      .btn-ghost:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-2px); }
+      .btn-ghost:hover { background: #eeeeee; transform: translateY(-2px); }
 
       @media print {
         body { background: #ffffff !important; padding: 0; }
@@ -637,28 +630,19 @@
   </head>
   <body>
     <header class="topbar">
-      <!-- ============================================================
-           LOGO PLACEHOLDER
-           Saat logo asli sudah siap, hapus <div class="logo-placeholder">
-           di bawah ini dan ganti dengan satu baris ini:
-
-           <img class="logo" src="logo-kamu.png" alt="Logo" style="height:46px;width:auto;">
-
-           (letakkan file logo di folder yang sama dengan file ini)
-           ============================================================ -->
-      <div class="logo-placeholder" aria-label="Logo">
+      <div class="logo-icon" aria-label="Ikon tiket basket">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
+          <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 0 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
           <path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>
         </svg>
       </div>
-      <span class="topbar-teks">Garuda Cup 2026</span>
+      <span class="topbar-teks">CourtSide Basket 2026</span>
     </header>
 
     <main class="wrap">
       <div class="judul">
-        <h1>Pemesanan Tiket</h1>
-        <p>Amankan kursimu sekarang</p>
+        <h1>Pemesanan Tiket Basket</h1>
+        <p>Saksikan aksi basket langsung di arena</p>
       </div>
 
       <section class="boxpemesanan">
@@ -676,10 +660,10 @@
           <label for="jumlah">Jumlah Tiket</label>
           <input type="number" id="jumlah" name="jumlah" min="1" max="10" value="1" required />
 
-          <label for="pertandingan">Pertandingan</label>
+          <label for="pertandingan">Pertandingan Basket</label>
           <select id="pertandingan" name="pertandingan">
-            <option value="Garuda vs Elang Jaya — 12 Mei 2026, Stadion Utama">Garuda vs Elang Jaya — 12 Mei 2026, Stadion Utama</option>
-            <option value="Rajawali vs Banteng Merah — 15 Mei 2026, Stadion Utama">Rajawali vs Banteng Merah — 15 Mei 2026, Stadion Utama</option>
+            <option value="Jakarta Hoopers vs Bandung Titans — 24 Oktober 2026, Arena Basket Jakarta">Jakarta Hoopers vs Bandung Titans — 24 Oktober 2026, Arena Basket Jakarta</option>
+            <option value="Surabaya Waves vs Bali Storm — 26 Oktober 2026, Arena Basket Jakarta">Surabaya Waves vs Bali Storm — 26 Oktober 2026, Arena Basket Jakarta</option>
           </select>
         </form>
       </section>
@@ -687,7 +671,7 @@
       <section class="pilihan">
         <div class="pilihan-judul">
           <h3>Pilih Tiketmu</h3>
-          <p>Gunakan panah untuk melihat tiket lain dari kategori yang sama</p>
+          <p>Pilih tiket reguler atau premium untuk pertandingan basket</p>
         </div>
         <div class="carousel">
           <button class="arrow" id="panahKiri" aria-label="Tiket sebelumnya">
@@ -729,7 +713,7 @@
         <div class="detail-isi">
           <span class="badge badge-netral" id="detailBadge">Belum dipilih</span>
           <h3 id="detailNama">Pilih tiket di atas</h3>
-          <p id="detailDeskripsi">Klik salah satu kartu tiket di atas untuk melihat gambar, nama, dan deskripsi tiketnya di sini.</p>
+          <p id="detailDeskripsi">Pilih tiket basket reguler atau premium untuk melihat detail harga dan tempat duduk.</p>
           <div class="detail-bawah">
             <div>
               <span class="detail-total" id="detailTotal">—</span>
@@ -744,15 +728,10 @@
     <section class="layar-struk" id="layarStruk" hidden>
       <div class="struk-kartu">
         <div class="struk-kepala">
-          <div class="struk-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
-              <path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>
-            </svg>
-          </div>
+          <img class="struk-logo" id="strukLogo" src="ticket_image/common_ticket.png" alt="Tiket basket reguler" />
           <div>
-            <h2>Garuda Cup 2026</h2>
-            <p>Struk E-Tiket</p>
+            <h2>CourtSide Basket 2026</h2>
+            <p>Struk Tiket Basket</p>
           </div>
         </div>
 
@@ -776,7 +755,7 @@
           <strong id="strukTotal">—</strong>
         </div>
 
-        <p class="struk-catatan">Tunjukkan struk ini (cetak atau tampilan ponsel) beserta identitas diri di gerbang masuk stadion. Satu struk berlaku untuk sekali pertukaran tiket fisik.</p>
+        <p class="struk-catatan">Tunjukkan struk ini (cetak atau tampilan ponsel) beserta identitas diri di pintu masuk arena basket.</p>
       </div>
 
       <div class="struk-actions">
@@ -790,58 +769,54 @@
       const DATA_TIKET = {
         reguler: [
           {
-            nama: "Tribun Utara",
+            nama: "Tribun Belakang Ring",
             harga: 75000,
-            warna: ["#5b8def", "#274690"],
-            deskripsi: "Suasana paling hidup di stadion. Tribun Utara adalah markas besar suporter Garuda — nyanyi, chant, dan koreografi sepanjang 90 menit.",
+            deskripsi: "Duduk tepat di belakang ring dan rasakan setiap tembakan, rebound, serta dunk dari jarak dekat.",
           },
           {
-            nama: "Tribun Selatan",
+            nama: "Tribun Samping",
             harga: 75000,
-            warna: ["#6a9df0", "#2f55a5"],
-            deskripsi: "Berseberangan langsung dengan Tribun Utara. Sudut pandang simetris ke seluruh lapangan dan atmosfer derby yang bikin merinding.",
+            deskripsi: "Nikmati pandangan menyeluruh ke lapangan untuk mengikuti setiap fast break dan strategi tim.",
           },
           {
-            nama: "Tribun Timur",
+            nama: "Tribun Tengah",
             harga: 90000,
-            warna: ["#4f7fe8", "#203a80"],
-            deskripsi: "Sisi teduh stadion saat sore hari. Posisi lebih tinggi dengan pandangan lebar, cocok untuk menikmati permainan dari atas.",
+            deskripsi: "Posisi strategis di tengah arena dengan sudut pandang seimbang ke kedua ring.",
           },
           {
             nama: "Tribun Keluarga",
             harga: 120000,
-            warna: ["#7fa9f2", "#3a5fb8"],
-            deskripsi: "Area khusus keluarga dengan akses ramah anak, toilet terdekat, dan kursi lebih lebar untuk kenyamanan bersama si kecil.",
+            deskripsi: "Area nyaman untuk menikmati pertandingan basket bersama keluarga dan teman-teman.",
           },
         ],
         premium: [
           {
-            nama: "VIP Barat",
+            nama: "Courtside VIP",
             harga: 250000,
-            warna: ["#ffd97a", "#c98a1b"],
-            deskripsi: "Kursi empuk di tengah sisi lapangan dengan ruang kaki lega. Termasuk akses lounge indoor dan makanan ringan.",
+            deskripsi: "Tempat duduk premium di sisi lapangan: dengar pantulan bola dan rasakan intensitas permainan dari dekat.",
           },
           {
-            nama: "VIP Timur",
+            nama: "VIP Tribun Tengah",
             harga: 250000,
-            warna: ["#ffcf5e", "#b97a10"],
-            deskripsi: "Sisi VIP yang sama prestisiusnya dengan pemandangan langsung ke bench pemain. Pintu masuk terpisah tanpa antrean.",
+            deskripsi: "Nikmati pemandangan lapangan yang jelas dan nyaman dari area VIP di tengah tribun.",
           },
           {
-            nama: "Skybox VVIP",
+            nama: "Skybox Basket",
             harga: 500000,
-            warna: ["#ffe6a3", "#d9a125"],
-            deskripsi: "Skybox privat di tingkat atas dengan kaca panorama, sofa keluarga, dan layanan katering lengkap selama pertandingan.",
+            deskripsi: "Area privat dengan pemandangan panorama seluruh lapangan untuk pengalaman menonton yang eksklusif.",
           },
           {
-            nama: "Executive Lounge",
+            nama: "Premium Lounge",
             harga: 750000,
-            warna: ["#fff0c2", "#e0b84a"],
-            deskripsi: "Pengalaman paling eksklusif: lounge ber-AC, parkir VIP, jamuan sebelum pertandingan, dan kesempatan bertemu legenda Garuda.",
+            deskripsi: "Akses lounge premium dan tempat duduk istimewa untuk menikmati pertandingan basket dengan lebih nyaman.",
           },
         ],
       };
 
+      const GAMBAR_TIKET = {
+        reguler: "ticket_image/common_ticket.png",
+        premium: "ticket_image/premium-ticket.png",
+      };
       const indeks = { reguler: 0, premium: 0 };
       let terpilih = null;
 
@@ -851,18 +826,21 @@
         currency: "IDR",
         maximumFractionDigits: 0,
       });
-      const IKON_TIKET =
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>';
+      const IKON_BASKET =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4.5 7h15M4.5 17h15M12 3c2.4 2.4 3.6 5.4 3.6 9s-1.2 6.6-3.6 9M12 3C9.6 5.4 8.4 8.4 8.4 12s1.2 6.6 3.6 9"/></svg>';
 
-      const lapisanGambar = (warna) =>
-        `radial-gradient(130px 90px at 80% 12%, rgba(255,255,255,0.35), transparent 60%), repeating-linear-gradient(135deg, rgba(255,255,255,0.10) 0 8px, transparent 8px 16px), linear-gradient(140deg, ${warna[0]}, ${warna[1]})`;
+      function pasangGambarTiket(el, kat) {
+        const img = document.createElement("img");
+        img.src = GAMBAR_TIKET[kat];
+        img.alt = kat === "reguler" ? "Tiket basket reguler" : "Tiket basket premium";
+        el.replaceChildren(img);
+      }
 
       function renderKartu(kat) {
         const i = indeks[kat];
         const t = DATA_TIKET[kat][i];
         const el = $("#kartu-" + kat);
-        el.querySelector(".kartu-gambar").style.background = lapisanGambar(t.warna);
-        el.querySelector(".kartu-gambar").innerHTML = IKON_TIKET;
+        pasangGambarTiket(el.querySelector(".kartu-gambar"), kat);
         el.querySelector(".kartu-nama").textContent = t.nama;
         el.querySelector(".kartu-harga").textContent = rupiah.format(t.harga);
         el.querySelector(".kartu-urut").textContent = `${i + 1} / ${DATA_TIKET[kat].length}`;
@@ -881,12 +859,12 @@
         if (!terpilih) {
           g.className = "gambar-tiket kosong";
           g.style.background = "";
-          g.innerHTML = IKON_TIKET;
+          g.innerHTML = IKON_BASKET;
           badge.textContent = "Belum dipilih";
           badge.className = "badge badge-netral";
           $("#detailNama").textContent = "Pilih tiket di atas";
           $("#detailDeskripsi").textContent =
-            "Klik salah satu kartu tiket di atas untuk melihat gambar, nama, dan deskripsi tiketnya di sini.";
+            "Pilih tiket basket reguler atau premium untuk melihat detail harga dan tempat duduk.";
           $("#detailTotal").textContent = "—";
           $("#detailPerTiket").textContent = "";
           $("#btnPesan").disabled = true;
@@ -895,8 +873,7 @@
         const t = DATA_TIKET[terpilih.kat][terpilih.i];
         const jumlah = Math.max(1, parseInt($("#jumlah").value, 10) || 1);
         g.className = "gambar-tiket" + (terpilih.kat === "premium" ? " premium" : "");
-        g.style.background = lapisanGambar(t.warna);
-        g.innerHTML = IKON_TIKET;
+        pasangGambarTiket(g, terpilih.kat);
         badge.textContent = terpilih.kat === "reguler" ? "Reguler" : "Premium";
         badge.className =
           "badge " + (terpilih.kat === "reguler" ? "badge-reguler" : "badge-premium");
@@ -964,6 +941,9 @@
       }
 
       function isiStruk(d) {
+        const jenisTiket = d.kategori === "Reguler" ? "reguler" : "premium";
+        $("#strukLogo").src = GAMBAR_TIKET[jenisTiket];
+        $("#strukLogo").alt = `Tiket basket ${jenisTiket}`;
         $("#strukKode").textContent = d.kode;
         buatBarcode($("#barcodeGaris"), d.kode);
         $("#strukNama").textContent = d.nama;
@@ -978,7 +958,7 @@
         $("#strukTotal").textContent = rupiah.format(d.total);
       }
 
-      function gambarStrukPNG(d) {
+      async function gambarStrukPNG(d) {
         const W = 900, H = 1240, M = 64;
         const cv = document.createElement("canvas");
         cv.width = W;
@@ -1008,34 +988,46 @@
           ctx.fillText(teks, W / 2, y);
         };
 
-        ctx.fillStyle = "#0b1026";
+        ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, W, H);
         rr(30, 30, W - 60, H - 60, 28);
-        ctx.fillStyle = "#fdfcf9";
+        ctx.fillStyle = "#ffffff";
         ctx.fill();
         ctx.save();
         rr(30, 30, W - 60, H - 60, 28);
         ctx.clip();
-        ctx.fillStyle = "#e8a52c";
+        ctx.fillStyle = "#111111";
         ctx.fillRect(30, 30, W - 60, 12);
         ctx.restore();
 
-        tengah("GARUDA CUP 2026", 132, "800 46px Sora, 'Segoe UI', sans-serif", "#1a2033");
-        tengah("STRUK E-TIKET", 170, "600 21px Manrope, 'Segoe UI', sans-serif", "#8a93a6");
+        const logo = new Image();
+        logo.src = GAMBAR_TIKET[d.kategori === "Reguler" ? "reguler" : "premium"];
+        await new Promise((resolve, reject) => {
+          logo.onload = resolve;
+          logo.onerror = () => reject(new Error("Gagal memuat gambar tiket untuk struk."));
+        });
+        ctx.drawImage(logo, M, 72, 112, 80);
+        ctx.font = "800 40px Sora, 'Segoe UI', sans-serif";
+        ctx.fillStyle = "#171717";
+        ctx.textAlign = "right";
+        ctx.fillText("COURTSIDE BASKET 2026", W - M, 118);
+        ctx.font = "600 21px Manrope, 'Segoe UI', sans-serif";
+        ctx.fillStyle = "#666666";
+        ctx.fillText("STRUK TIKET BASKET", W - M, 157);
 
         let lebarTotal = 0;
         for (const ch of d.kode) lebarTotal += (ch.charCodeAt(0) % 3) + 2 + 3;
         lebarTotal -= 3;
         let bx = (W - lebarTotal) / 2;
-        ctx.fillStyle = "#1a2033";
+        ctx.fillStyle = "#171717";
         for (const ch of d.kode) {
           const w = (ch.charCodeAt(0) % 3) + 2;
           ctx.fillRect(bx, 205, w, 104);
           bx += w + 3;
         }
-        tengah(d.kode, 358, "700 34px Sora, 'Segoe UI', sans-serif", "#1a2033");
+        tengah(d.kode, 358, "700 34px Sora, 'Segoe UI', sans-serif", "#171717");
 
-        ctx.strokeStyle = "#d8d2c4";
+        ctx.strokeStyle = "#cccccc";
         ctx.setLineDash([8, 8]);
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -1048,7 +1040,7 @@
           ["NAMA", d.nama],
           ["NO. TELEPON", d.telepon],
           ["EMAIL", d.email],
-          ["PERTANDINGAN", d.pertandingan],
+          ["PERTANDINGAN BASKET", d.pertandingan],
           ["TIKET", d.tiket],
           ["KATEGORI", d.kategori],
           ["JUMLAH", d.jumlah + " tiket"],
@@ -1058,14 +1050,14 @@
         let y = 448;
         for (const [label, nilai] of baris) {
           ctx.font = "600 19px Manrope, 'Segoe UI', sans-serif";
-          ctx.fillStyle = "#8a93a6";
+          ctx.fillStyle = "#666666";
           ctx.textAlign = "left";
           ctx.fillText(label, M, y);
           ctx.font = "700 26px Manrope, 'Segoe UI', sans-serif";
-          ctx.fillStyle = "#1a2033";
+          ctx.fillStyle = "#171717";
           ctx.textAlign = "right";
           ctx.fillText(potong(nilai, W - 2 * M - 240), W - M, y);
-          ctx.strokeStyle = "#ece7dc";
+          ctx.strokeStyle = "#dddddd";
           ctx.setLineDash([5, 5]);
           ctx.lineWidth = 1.5;
           ctx.beginPath();
@@ -1078,21 +1070,21 @@
 
         rr(M, y + 8, W - 2 * M, 76, 14);
         const grad = ctx.createLinearGradient(M, 0, W - M, 0);
-        grad.addColorStop(0, "#ffe29a");
-        grad.addColorStop(1, "#e8a52c");
+        grad.addColorStop(0, "#111111");
+        grad.addColorStop(1, "#444444");
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.font = "700 24px Sora, 'Segoe UI', sans-serif";
-        ctx.fillStyle = "#20160a";
+        ctx.fillStyle = "#ffffff";
         ctx.textAlign = "left";
         ctx.fillText("TOTAL BAYAR", M + 26, y + 55);
         ctx.font = "800 32px Sora, 'Segoe UI', sans-serif";
         ctx.textAlign = "right";
         ctx.fillText(rupiah.format(d.total), W - M - 26, y + 56);
 
-        tengah("Tunjukkan struk ini di gerbang masuk stadion.", y + 132, "500 20px Manrope, 'Segoe UI', sans-serif", "#8a93a6");
-        tengah("Satu struk berlaku untuk sekali pertukaran tiket fisik.", y + 160, "500 20px Manrope, 'Segoe UI', sans-serif", "#8a93a6");
-        tengah("Garuda Cup 2026 — " + d.waktu, H - 66, "600 18px Manrope, sans-serif", "#b6bccb");
+        tengah("Tunjukkan tiket ini di pintu masuk arena basket.", y + 132, "500 20px Manrope, 'Segoe UI', sans-serif", "#666666");
+        tengah("Nikmati pertandingan basket secara langsung.", y + 160, "500 20px Manrope, 'Segoe UI', sans-serif", "#666666");
+        tengah("CourtSide Basket 2026 — " + d.waktu, H - 66, "600 18px Manrope, sans-serif", "#777777");
 
         return cv.toDataURL("image/png");
       }
@@ -1115,7 +1107,7 @@
         const t = DATA_TIKET[terpilih.kat][terpilih.i];
         const jumlah = Math.max(1, parseInt($("#jumlah").value, 10) || 1);
         dataPesanan = {
-          kode: "GC-" + Math.random().toString(36).slice(2, 8).toUpperCase(),
+          kode: "CB-" + Math.random().toString(36).slice(2, 8).toUpperCase(),
           nama: $("#nama").value.trim(),
           telepon: $("#nomor").value.trim(),
           email: $("#email").value.trim(),
@@ -1133,10 +1125,10 @@
         tampilkanStruk(dataPesanan);
       });
 
-      $("#btnUnduh").addEventListener("click", () => {
+      $("#btnUnduh").addEventListener("click", async () => {
         if (!dataPesanan) return;
         const a = document.createElement("a");
-        a.href = gambarStrukPNG(dataPesanan);
+        a.href = await gambarStrukPNG(dataPesanan);
         a.download = "struk-" + dataPesanan.kode + ".png";
         document.body.appendChild(a);
         a.click();

@@ -1,7 +1,186 @@
-body {
-    display: flex;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-}
+    /* ===== RESET & BASE ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      color: #111;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      background: #fff;
+      padding: 15px 0;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+    .btn-nav {
+      padding: 8px 18px;
+      background: #111;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-nav:hover { background: #333; transform: translateY(-1px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 70px 20px 50px;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hero p {
+      color: #555;
+      max-width: 560px;
+      margin: 0 auto 28px;
+      font-size: 1.05rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 13px 30px;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: 0.2s;
+    }
+    .btn-primary:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    /* ===== TICKETS ===== */
+    .tickets { padding: 60px 20px; }
+    .section-title {
+      text-align: center;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .section-sub {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+    }
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .ticket-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .ticket-card:hover {
+      box-shadow: 0 14px 24px -8px rgba(0,0,0,0.15);
+      border-color: #111;
+      transform: translateY(-4px);
+    }
+    .ticket-image {
+      padding: 24px;
+      background: #f3f4f6;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ticket-image img {
+      max-height: 100%;
+      max-width: 85%;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
+    }
+    .ticket-info {
+      padding: 22px 24px 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .ticket-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+    .ticket-price {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .ticket-desc {
+      color: #666;
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+    .btn-select {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #fff;
+      color: #111;
+      border: 2px solid #111;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-select:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero { padding: 50px 20px 40px; }
+      .hero h1 { font-size: 1.9rem; }
+      .ticket-grid { grid-template-columns: 1fr; }
+    }
